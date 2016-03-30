@@ -1,0 +1,14 @@
+class PicrossPieceCount : ZilchComponent
+{
+    var Red : Integer;
+    var Black : Integer = 100;
+    var Grey : Integer = 100; 
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+    }
+}

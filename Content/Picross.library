@@ -1,0 +1,7 @@
+ContentLibrary = 
+{
+	string Name = "Picross",
+	uint64 LibraryId = 56ee917eae8eee3e,
+	string SourceControlType = "",
+	bool ReadOnly = false,
+},

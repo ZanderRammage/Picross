@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "ChangeToBlack",
+		uint64 ResourceId = 56ebf5ccd558832d,
+	},
+},

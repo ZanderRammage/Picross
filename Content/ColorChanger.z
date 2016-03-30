@@ -1,0 +1,64 @@
+class ColorChanger : ZilchComponent
+{
+    var R : Real = 1;
+    var G : Real = 0;
+    var B : Real = 0;
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Owner.MultiSprite.Color = Real4(this.R, this.G, this.B, 1);
+        
+        if(this.R == 1.0 && this.G < 1.0 && this.B == 0)           //Red to Yellow
+        {
+            this.G += 0.01;
+        }
+        if(this.R > 0.0 && this.G == 1.0 && this.B == 0)           //Yellow to Green
+        {
+            this.R -= 0.01;
+        }
+        if(this.R == 0 && this.G == 1.0 && this.B < 1.0)           //Green to Cyan
+        {
+            this.B += 0.01;
+        }
+        if(this.R == 0 && this.G > 0.0 && this.B == 1.0)           //Cyan to Blue
+        {
+            this.G -= 0.01;
+        }
+        if(this.R < 1.0 && this.G == 0 && this.B == 1.0)           //Blue to Magenta
+        {
+            this.R += 0.01;
+        }
+        if(this.R == 1.0 && this.G == 0 && this.B > 0.0)           //Magenta to Red
+        {
+            this.B -= 0.01;
+        }
+        if(this.R > 1)
+        {
+            this.R = 1;
+        }
+        if(this.G > 1)
+        {
+            this.G = 1;
+        }
+        if(this.B > 1)
+        {
+            this.B = 1;
+        }
+        if(this.R < 0)
+        {
+            this.R = 0;
+        }
+        if(this.G < 0)
+        {
+            this.G = 0;
+        }
+        if(this.B < 0)
+        {
+            this.B = 0;
+        }
+    }
+}

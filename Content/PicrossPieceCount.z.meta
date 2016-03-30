@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "PicrossPieceCount",
+		uint64 ResourceId = 56ebf56cf325c2c3,
+	},
+},
