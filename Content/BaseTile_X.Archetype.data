@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-2, 2, -2],
+		Vec3 Translation = [-1, 1, -2],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -42,6 +42,9 @@ Cog =
 		bool CaptureMouse = false,
 	},
 	ChangeToIncorrect = 
+	{
+	},
+	PieceChange = 
 	{
 	},
 },

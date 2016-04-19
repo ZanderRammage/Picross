@@ -1,0 +1,11 @@
+DataContent = 
+{
+	DataBuilder = 
+	{
+		string Name = "Rabbit",
+		uint64 ResourceId = 571be7556c128c99,
+		string LoaderType = "Level",
+		uint Version = 0,
+		bool ShowInEditor = true,
+	},
+},

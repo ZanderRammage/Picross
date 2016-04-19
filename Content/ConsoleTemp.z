@@ -1,0 +1,23 @@
+class ConsoleTemp : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        Console.WriteLine("Red: `this.LevelSettings.PicrossPieceCount.Red`");
+        Console.WriteLine("Black: `this.LevelSettings.PicrossPieceCount.Black`");
+        Console.WriteLine("Grey: `this.LevelSettings.PicrossPieceCount.Grey`");
+        Console.WriteLine("White: `this.LevelSettings.PicrossPieceCount.White`");
+        Console.WriteLine("LGrey: `this.LevelSettings.PicrossPieceCount.LGrey`");
+        Console.WriteLine("");
+        Console.WriteLine("");
+        Console.WriteLine("");
+        Console.WriteLine("");
+        Console.WriteLine("");
+        Console.WriteLine("");
+    }
+}

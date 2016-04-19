@@ -1,0 +1,22 @@
+class Lives : ZilchComponent
+{
+    var Lives : Integer = 7;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var lives = "Heart`this.Lives`";
+        this.Space.FindObjectByName("`lives`").Sprite.CurrentFrame = 1;
+        
+        if(this.Lives == 1)
+        {
+            this.Space.ReloadLevel();
+        }
+    }
+}

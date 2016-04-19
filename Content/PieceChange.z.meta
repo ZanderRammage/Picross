@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "PieceChange",
+		uint64 ResourceId = 5701940f82b70b5c,
+	},
+},

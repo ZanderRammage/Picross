@@ -1,0 +1,89 @@
+class PieceChange : ZilchComponent
+{
+    var Red : Integer;
+    var Black : Integer;
+    var Grey : Integer; 
+    var White : Integer;
+    var LGrey : Integer;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.MouseDown, this.OnMouseDown);
+        Zero.Connect(this.Owner, Events.MouseUp, this.OnMouseUp);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Red = this.LevelSettings.PicrossPieceCount.Red;
+        this.Black = this.LevelSettings.PicrossPieceCount.Black;
+        this.Grey = this.LevelSettings.PicrossPieceCount.Grey;
+        this.White = this.LevelSettings.PicrossPieceCount.White;
+        this.LGrey = this.LevelSettings.PicrossPieceCount.LGrey;
+        //Console.WriteLine(this.LGrey);
+    }
+    
+    
+    function OnMouseDown(event : ViewportMouseEvent)
+    {
+        var name = this.Owner.Name;
+        if(name == "BaseTile_Incorrect" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Incorrect"))
+        {
+            var lives = this.LevelSettings.Lives.Lives;
+            lives -= 1;
+            this.LevelSettings.Lives.Lives = lives;
+        }
+        
+        if(name == "black")
+        {
+            var sprite = this.Owner.Sprite.SpriteSource;
+            var black = this.LevelSettings.PicrossPieceCount.Black;
+            sprite = SpriteSource.Find("Black");
+            black -= 1;
+            this.Owner.Sprite.SpriteSource = sprite;
+            this.LevelSettings.PicrossPieceCount.Black = black;
+        }
+        
+        if(name == "grey")
+        {
+            var sprite = this.Owner.Sprite.SpriteSource;
+            var grey = this.LevelSettings.PicrossPieceCount.Grey;
+            sprite = SpriteSource.Find("Grey");
+            grey -= 1;
+            this.Owner.Sprite.SpriteSource = sprite;
+            this.LevelSettings.PicrossPieceCount.Grey = grey;
+        }
+        
+        if(name == "lGrey")
+        {
+            var sprite = this.Owner.Sprite.SpriteSource;
+            var lgrey = this.LevelSettings.PicrossPieceCount.LGrey;
+            sprite = SpriteSource.Find("LightGrey");
+            lgrey -= 1;
+            this.Owner.Sprite.SpriteSource = sprite;
+            this.LevelSettings.PicrossPieceCount.LGrey = lgrey;
+        }
+        
+        if(name == "white")
+        {
+            var sprite = this.Owner.Sprite.SpriteSource;
+            var white = this.LevelSettings.PicrossPieceCount.White;
+            sprite = SpriteSource.Find("White");
+            white -= 1;
+            this.Owner.Sprite.SpriteSource = sprite;
+            this.LevelSettings.PicrossPieceCount.White = white;
+        }
+    }
+    
+    
+    function OnMouseUp(event : ViewportMouseEvent)
+    {
+        if(this.Owner.Name == "BaseTile_Incorrect" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Incorrect"))
+        {
+            var sprite = this.Owner.Sprite.SpriteSource;
+            sprite = SpriteSource.Find("Incorrect");
+            this.Owner.Sprite.SpriteSource = sprite;
+        }
+    }
+}

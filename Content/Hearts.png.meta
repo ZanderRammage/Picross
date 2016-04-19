@@ -1,0 +1,20 @@
+ImageContent = 
+{
+	SpriteSourceBuilder = 
+	{
+		string Name = "Hearts",
+		uint64 ResourceId = 5706d0ebe2536bc0,
+		uint64 AtlasId = 5274cf95e4a661fd,
+		uint FrameSizeX = 16,
+		uint FrameSizeY = 15,
+		uint FrameCount = 2,
+		float FrameDelay = 0.0833333358,
+		float OriginX = 8,
+		float OriginY = 7,
+		float PixelsPerUnit = 64,
+		bool Smoothing = false,
+		bool Looping = true,
+		Vec4 Slices = [0, 0, 0, 0],
+		SpriteFill Fill = Stretch,
+	},
+},

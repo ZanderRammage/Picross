@@ -1,0 +1,54 @@
+class IncreaseBy1 : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        var name = this.Owner.Name;
+        
+        var red = this.LevelSettings.PicrossPieceCount.Red;
+        var black = this.LevelSettings.PicrossPieceCount.Black;
+        var grey = this.LevelSettings.PicrossPieceCount.Grey;
+        var white = this.LevelSettings.PicrossPieceCount.White;
+        var lGrey = this.LevelSettings.PicrossPieceCount.LGrey;
+        
+        if(name == "red")
+        {
+            red += 1;
+        }
+        
+        if(name == "black")
+        {
+            black += 1;
+        }
+        
+        if(name == "grey")
+        {
+            grey += 1;
+        }
+        
+        if(name == "white")
+        {
+            white += 1;
+        }
+        
+        if(name == "lGrey")
+        {
+            lGrey += 1;
+        }
+        
+        this.LevelSettings.PicrossPieceCount.Red = red;
+        this.LevelSettings.PicrossPieceCount.Black = black;
+        this.LevelSettings.PicrossPieceCount.Grey = grey;
+        this.LevelSettings.PicrossPieceCount.White = white;
+        this.LevelSettings.PicrossPieceCount.LGrey = lGrey;
+        
+        Console.WriteLine("Red: `red`");
+        Console.WriteLine("Black: `black`");
+        Console.WriteLine("Grey: `grey`");
+        Console.WriteLine("White: `white`");
+        Console.WriteLine("LGrey: `lGrey`");
+        Console.WriteLine("");
+        Console.WriteLine("");
+        Console.WriteLine("");
+        Console.WriteLine("");
+    }
+}

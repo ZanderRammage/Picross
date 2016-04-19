@@ -6,7 +6,7 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "BaseTile_Grey",
+		string Name = "grey",
 	},
 	Archetyped = 
 	{
@@ -14,7 +14,7 @@ Cog =
 	},
 	Transform = 
 	{
-		Vec3 Translation = [4.36654091, 2, 0],
+		Vec3 Translation = [-1, 1, 0.400000006],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
@@ -41,7 +41,10 @@ Cog =
 		bool Active = true,
 		bool CaptureMouse = false,
 	},
-	ChangeToGrey = 
+	PieceChange = 
+	{
+	},
+	IncreaseBy1 = 
 	{
 	},
 },

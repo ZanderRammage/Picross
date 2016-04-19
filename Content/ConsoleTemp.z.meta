@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "ConsoleTemp",
+		uint64 ResourceId = 57017fdbf182be0e,
+	},
+},

@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "IncreaseBy1",
+		uint64 ResourceId = 570160632aaaff21,
+	},
+},
