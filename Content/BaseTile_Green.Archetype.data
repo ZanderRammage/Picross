@@ -6,15 +6,15 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "black",
+		string Name = "green",
 	},
 	Archetyped = 
 	{
-		string Name = "56ed0a2b49147de7:BaseTile_Black",
+		string Name = "5700034d9516ebd7:BaseTile_Green",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [-7.98302364, 1.08053875, 0],
+		Vec3 Translation = [22.4842052, 17.5570602, 0],
 		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},

@@ -5,6 +5,16 @@ class PicrossPieceCount : ZilchComponent
     var Grey : Integer = 0; 
     var White : Integer = 0;
     var LGrey : Integer = 0;
+    var LGreen : Integer = 0;
+    var DGreen : Integer = 0;
+    var Green : Integer = 0;
+    var DRed : Integer = 0;
+    
+    var Level : Integer = 1;
+    
+    var Timer : Real = 0;
+    
+    
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
@@ -12,6 +22,30 @@ class PicrossPieceCount : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        
+        if(this.Red == 0 && this.Black == 0 && this.Grey == 0 && this.White == 0 && this.LGrey == 0 && this.DRed == 0 && this.DGreen == 0 && this.LGreen == 0 && this.Green == 0)
+        {
+            this.Timer += event.Dt;
+            
+            if(this.Timer >= 3)
+            {
+                this.Level += 1;
+                var space = this.LoadLevel(Level.Find("A`this.Level`"));
+                //this.Level += 1;
+               // var level = Level.Find("A`this.Level`");
+              //  this.Space.LoadLevel(level);
+            }
+        }
+    }
+    
+    function LoadLevel(level : Level) : Space
+    {
+        //var levelname = this.Space.FindObjectByName("LevelSettings").PicrossPieceCount.Level;
+        var space = this.GameSession.CreateSpace(Archetype.Find("Space"));
+        space.LoadLevel(level);
+        space.FindObjectByName("LevelSettings").PicrossPieceCount.Level = this.Level;
+        this.Space.Destroy();
+        return space;
     }
 }
+
+

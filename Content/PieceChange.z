@@ -5,6 +5,11 @@ class PieceChange : ZilchComponent
     var Grey : Integer; 
     var White : Integer;
     var LGrey : Integer;
+    var LGreen : Integer;
+    var DGreen : Integer;
+    var Green : Integer;
+    var DRed : Integer;
+    
     
     function Initialize(init : CogInitializer)
     {
@@ -21,6 +26,10 @@ class PieceChange : ZilchComponent
         this.Grey = this.LevelSettings.PicrossPieceCount.Grey;
         this.White = this.LevelSettings.PicrossPieceCount.White;
         this.LGrey = this.LevelSettings.PicrossPieceCount.LGrey;
+        this.LGreen = this.LevelSettings.PicrossPieceCount.LGreen;
+        this.DGreen = this.LevelSettings.PicrossPieceCount.DGreen;
+        this.Green = this.LevelSettings.PicrossPieceCount.Green;
+        this.DRed = this.LevelSettings.PicrossPieceCount.DRed;
         //Console.WriteLine(this.LGrey);
     }
     
@@ -35,7 +44,17 @@ class PieceChange : ZilchComponent
             this.LevelSettings.Lives.Lives = lives;
         }
         
-        if(name == "black")
+        if(name == "red" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Red"))
+        {
+            var sprite = this.Owner.Sprite.SpriteSource;
+            var red = this.LevelSettings.PicrossPieceCount.Red;
+            sprite = SpriteSource.Find("Red");
+            red -= 1;
+            this.Owner.Sprite.SpriteSource = sprite;
+            this.LevelSettings.PicrossPieceCount.Red = red;
+        }
+        
+        if(name == "black" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Black"))
         {
             var sprite = this.Owner.Sprite.SpriteSource;
             var black = this.LevelSettings.PicrossPieceCount.Black;
@@ -45,7 +64,7 @@ class PieceChange : ZilchComponent
             this.LevelSettings.PicrossPieceCount.Black = black;
         }
         
-        if(name == "grey")
+        if(name == "grey" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Grey"))
         {
             var sprite = this.Owner.Sprite.SpriteSource;
             var grey = this.LevelSettings.PicrossPieceCount.Grey;
@@ -55,7 +74,7 @@ class PieceChange : ZilchComponent
             this.LevelSettings.PicrossPieceCount.Grey = grey;
         }
         
-        if(name == "lGrey")
+        if(name == "lGrey" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("LightGrey"))
         {
             var sprite = this.Owner.Sprite.SpriteSource;
             var lgrey = this.LevelSettings.PicrossPieceCount.LGrey;
@@ -65,7 +84,7 @@ class PieceChange : ZilchComponent
             this.LevelSettings.PicrossPieceCount.LGrey = lgrey;
         }
         
-        if(name == "white")
+        if(name == "white" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("White"))
         {
             var sprite = this.Owner.Sprite.SpriteSource;
             var white = this.LevelSettings.PicrossPieceCount.White;
@@ -73,6 +92,46 @@ class PieceChange : ZilchComponent
             white -= 1;
             this.Owner.Sprite.SpriteSource = sprite;
             this.LevelSettings.PicrossPieceCount.White = white;
+        }
+        
+        if(name == "dRed" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("DarkRed"))
+        {
+            var sprite = this.Owner.Sprite.SpriteSource;
+            var dRed = this.LevelSettings.PicrossPieceCount.DRed;
+            sprite = SpriteSource.Find("DarkRed");
+            dRed -= 1;
+            this.Owner.Sprite.SpriteSource = sprite;
+            this.LevelSettings.PicrossPieceCount.DRed = dRed;
+        }
+        
+        if(name == "green" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Green"))
+        {
+            var sprite = this.Owner.Sprite.SpriteSource;
+            var green = this.LevelSettings.PicrossPieceCount.Green;
+            sprite = SpriteSource.Find("Green");
+            green -= 1;
+            this.Owner.Sprite.SpriteSource = sprite;
+            this.LevelSettings.PicrossPieceCount.Green = green;
+        }
+        
+        if(name == "dGreen" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("DarkGreen"))
+        {
+            var sprite = this.Owner.Sprite.SpriteSource;
+            var dGreen = this.LevelSettings.PicrossPieceCount.DGreen;
+            sprite = SpriteSource.Find("DarkGreen");
+            dGreen -= 1;
+            this.Owner.Sprite.SpriteSource = sprite;
+            this.LevelSettings.PicrossPieceCount.DGreen = dGreen;
+        }
+        
+        if(name == "lGreen" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("LightGreen"))
+        {
+            var sprite = this.Owner.Sprite.SpriteSource;
+            var lGreen = this.LevelSettings.PicrossPieceCount.LGreen;
+            sprite = SpriteSource.Find("Red");
+            lGreen -= 1;
+            this.Owner.Sprite.SpriteSource = sprite;
+            this.LevelSettings.PicrossPieceCount.LGreen = lGreen;
         }
     }
     

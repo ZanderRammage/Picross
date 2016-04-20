@@ -35,6 +35,11 @@ class IncreaseBy1 : ZilchComponent
             lGrey += 1;
         }
         
+        if(name == "dGreen")
+        {
+            
+        }
+        
         this.LevelSettings.PicrossPieceCount.Red = red;
         this.LevelSettings.PicrossPieceCount.Black = black;
         this.LevelSettings.PicrossPieceCount.Grey = grey;

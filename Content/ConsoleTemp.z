@@ -13,10 +13,10 @@ class ConsoleTemp : ZilchComponent
         Console.WriteLine("Grey: `this.LevelSettings.PicrossPieceCount.Grey`");
         Console.WriteLine("White: `this.LevelSettings.PicrossPieceCount.White`");
         Console.WriteLine("LGrey: `this.LevelSettings.PicrossPieceCount.LGrey`");
-        Console.WriteLine("");
-        Console.WriteLine("");
-        Console.WriteLine("");
-        Console.WriteLine("");
+        Console.WriteLine("DGreen: `this.LevelSettings.PicrossPieceCount.DGreen`");
+        Console.WriteLine("LGreen: `this.LevelSettings.PicrossPieceCount.LGreen`");
+        Console.WriteLine("Green: `this.LevelSettings.PicrossPieceCount.Green`");
+        Console.WriteLine("DRed: `this.LevelSettings.PicrossPieceCount.DRed`");
         Console.WriteLine("");
         Console.WriteLine("");
     }
