@@ -1,0 +1,24 @@
+class ControlTrue : ZilchComponent
+{
+    var Control : Boolean;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        this.Control = this.LevelSettings.KeyboardMenuControl.Control;
+        var test = Zero.Mouse.RawMovement;
+        
+        //Console.WriteLine(Math.Length(test));
+        if(Math.Length(test) > 0)
+        {
+            this.Control = true;
+        }
+        this.LevelSettings.KeyboardMenuControl.Control = this.Control;
+    }
+}

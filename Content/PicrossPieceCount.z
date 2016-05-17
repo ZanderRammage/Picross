@@ -9,6 +9,11 @@ class PicrossPieceCount : ZilchComponent
     var DGreen : Integer = 0;
     var Green : Integer = 0;
     var DRed : Integer = 0;
+    var Gold1 : Integer = 0;
+    var Gold2 : Integer = 0;
+    var Gold3 : Integer = 0;
+    var LBlue : Integer = 0;
+    var Incorrect : Integer = 0;
     
     var Level : Integer = 1;
     
@@ -22,24 +27,30 @@ class PicrossPieceCount : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        if(this.Red == 0 && this.Black == 0 && this.Grey == 0 && this.White == 0 && this.LGrey == 0 && this.DRed == 0 && this.DGreen == 0 && this.LGreen == 0 && this.Green == 0)
+        if(this.Red == 0 && this.Black == 0 && this.Grey == 0 && this.White == 0 && this.LGrey == 0 && this.DRed == 0 && this.DGreen == 0 && this.LGreen == 0 && this.Green == 0 && this.Gold1 == 0 && this.Gold2 == 0 && this.Gold3 == 0 && this.LBlue == 0)
         {
             this.Timer += event.Dt;
             
-            if(this.Timer >= 3)
+            if(this.Timer >= 1)
             {
-                this.Level += 1;
                 var space = this.LoadLevel(Level.Find("A`this.Level`"));
-                //this.Level += 1;
-               // var level = Level.Find("A`this.Level`");
-              //  this.Space.LoadLevel(level);
+                if(this.Space.CurrentLevel.Name == "A`this.Level`")
+                {
+                    this.Level += 1;
+                    space = this.LoadLevel(Level.Find("A`this.Level`"));
+                }
+                
+                if(this.Space.CurrentLevel.Name == "C`this.Level`")
+                {
+                    this.Level += 1;
+                    space = this.LoadLevel(Level.Find("C`this.Level`"));
+                }
             }
         }
     }
     
     function LoadLevel(level : Level) : Space
     {
-        //var levelname = this.Space.FindObjectByName("LevelSettings").PicrossPieceCount.Level;
         var space = this.GameSession.CreateSpace(Archetype.Find("Space"));
         space.LoadLevel(level);
         space.FindObjectByName("LevelSettings").PicrossPieceCount.Level = this.Level;
@@ -47,5 +58,3 @@ class PicrossPieceCount : ZilchComponent
         return space;
     }
 }
-
-

@@ -6,16 +6,12 @@ Cog =
 	},
 	Named = 
 	{
-		string Name = "Heart6",
-	},
-	Archetyped = 
-	{
-		string Name = "5706ab2f02b7200b:Heart6",
+		string Name = "gold1",
 	},
 	Transform = 
 	{
-		Vec3 Translation = [7, 8.07091618, 0],
-		Vec3 Scale = [6, 6, 1],
+		Vec3 Translation = [4.765625, 4.63541698, 0],
+		Vec3 Scale = [1, 1, 1],
 		Quat Rotation = [0, 0, 0, 1],
 	},
 	Sprite = 
@@ -28,12 +24,23 @@ Cog =
 		BlendMode BlendMode = Alpha,
 		SpriteGeometryMode GeometryMode = ZPlane,
 		string SpriteLayer = "52ad5fa30d7fcd50:DefaultSpriteLayer",
-		string SpriteSource = "5706d0ebe2536bc0:Hearts",
+		string SpriteSource = "56ed340bdc2577b5:BaseTile",
 		bool RenderMask = false,
 		bool FlipX = false,
 		bool FlipY = false,
 		bool AnimationActive = true,
-		float AnimationSpeed = 0,
+		float AnimationSpeed = 1,
 		uint StartFrame = 0,
+	},
+	Reactive = 
+	{
+		bool Active = true,
+		bool CaptureMouse = false,
+	},
+	PieceChange = 
+	{
+	},
+	IncreaseBy1 = 
+	{
 	},
 },

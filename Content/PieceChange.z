@@ -9,30 +9,188 @@ class PieceChange : ZilchComponent
     var DGreen : Integer;
     var Green : Integer;
     var DRed : Integer;
+    var Gold1 : Integer;
+    var Gold2 : Integer;
+    var Gold3 : Integer;
+    var LBlue : Integer;
     
     
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.MouseEnter, this.OnMouseEnter);
         Zero.Connect(this.Owner, Events.MouseDown, this.OnMouseDown);
-        Zero.Connect(this.Owner, Events.MouseUp, this.OnMouseUp);
     }
     
     
     function OnLogicUpdate(event : UpdateEvent)
     {
-        this.Red = this.LevelSettings.PicrossPieceCount.Red;
         this.Black = this.LevelSettings.PicrossPieceCount.Black;
         this.Grey = this.LevelSettings.PicrossPieceCount.Grey;
         this.White = this.LevelSettings.PicrossPieceCount.White;
         this.LGrey = this.LevelSettings.PicrossPieceCount.LGrey;
-        this.LGreen = this.LevelSettings.PicrossPieceCount.LGreen;
         this.DGreen = this.LevelSettings.PicrossPieceCount.DGreen;
+        this.LGreen = this.LevelSettings.PicrossPieceCount.LGreen;
         this.Green = this.LevelSettings.PicrossPieceCount.Green;
         this.DRed = this.LevelSettings.PicrossPieceCount.DRed;
-        //Console.WriteLine(this.LGrey);
+        this.Gold1 = this.LevelSettings.PicrossPieceCount.Gold1;
+        this.Gold2 = this.LevelSettings.PicrossPieceCount.Gold2;
+        this.Gold3 = this.LevelSettings.PicrossPieceCount.Gold3;
+        this.LBlue = this.LevelSettings.PicrossPieceCount.LBlue;
     }
     
+    
+    function OnMouseEnter(event : ViewportMouseEvent)
+    {
+        if(Zero.Mouse.IsButtonDown(MouseButtons.Left))
+        {
+            var name = this.Owner.Name;
+            if(name == "BaseTile_Incorrect" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Incorrect"))
+            {
+                var lives = this.LevelSettings.Lives.Lives;
+                lives -= 1;
+                this.LevelSettings.Lives.Lives = lives;
+            }
+            
+            if(name == "red" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Red"))
+            {
+                var sprite = this.Owner.Sprite.SpriteSource;
+                var red = this.LevelSettings.PicrossPieceCount.Red;
+                sprite = SpriteSource.Find("Red");
+                red -= 1;
+                this.Owner.Sprite.SpriteSource = sprite;
+                this.LevelSettings.PicrossPieceCount.Red = red;
+            }
+            
+            if(name == "black" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Black"))
+            {
+                var sprite = this.Owner.Sprite.SpriteSource;
+                var black = this.LevelSettings.PicrossPieceCount.Black;
+                sprite = SpriteSource.Find("Black");
+                black -= 1;
+                this.Owner.Sprite.SpriteSource = sprite;
+                this.LevelSettings.PicrossPieceCount.Black = black;
+            }
+            
+            if(name == "grey" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Grey"))
+            {
+                var sprite = this.Owner.Sprite.SpriteSource;
+                var grey = this.LevelSettings.PicrossPieceCount.Grey;
+                sprite = SpriteSource.Find("Grey");
+                grey -= 1;
+                this.Owner.Sprite.SpriteSource = sprite;
+                this.LevelSettings.PicrossPieceCount.Grey = grey;
+            }
+            
+            if(name == "lGrey" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("LightGrey"))
+            {
+                var sprite = this.Owner.Sprite.SpriteSource;
+                var lgrey = this.LevelSettings.PicrossPieceCount.LGrey;
+                sprite = SpriteSource.Find("LightGrey");
+                lgrey -= 1;
+                this.Owner.Sprite.SpriteSource = sprite;
+                this.LevelSettings.PicrossPieceCount.LGrey = lgrey;
+            }
+            
+            if(name == "white" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("White"))
+            {
+                var sprite = this.Owner.Sprite.SpriteSource;
+                var white = this.LevelSettings.PicrossPieceCount.White;
+                sprite = SpriteSource.Find("White");
+                white -= 1;
+                this.Owner.Sprite.SpriteSource = sprite;
+                this.LevelSettings.PicrossPieceCount.White = white;
+            }
+            
+            if(name == "dRed" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("DarkRed"))
+            {
+                var sprite = this.Owner.Sprite.SpriteSource;
+                var dRed = this.LevelSettings.PicrossPieceCount.DRed;
+                sprite = SpriteSource.Find("DarkRed");
+                dRed -= 1;
+                this.Owner.Sprite.SpriteSource = sprite;
+                this.LevelSettings.PicrossPieceCount.DRed = dRed;
+            }
+            
+            if(name == "green" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Green"))
+            {
+                var sprite = this.Owner.Sprite.SpriteSource;
+                var green = this.LevelSettings.PicrossPieceCount.Green;
+                sprite = SpriteSource.Find("Green");
+                green -= 1;
+                this.Owner.Sprite.SpriteSource = sprite;
+                this.LevelSettings.PicrossPieceCount.Green = green;
+            }
+            
+            if(name == "dGreen" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("DarkGreen"))
+            {
+                var sprite = this.Owner.Sprite.SpriteSource;
+                var dGreen = this.LevelSettings.PicrossPieceCount.DGreen;
+                sprite = SpriteSource.Find("DarkGreen");
+                dGreen -= 1;
+                this.Owner.Sprite.SpriteSource = sprite;
+                this.LevelSettings.PicrossPieceCount.DGreen = dGreen;
+            }
+            
+            if(name == "lGreen" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("LightGreen"))
+            {
+                var sprite = this.Owner.Sprite.SpriteSource;
+                var lGreen = this.LevelSettings.PicrossPieceCount.LGreen;
+                sprite = SpriteSource.Find("LightGreen");
+                lGreen -= 1;
+                this.Owner.Sprite.SpriteSource = sprite;
+                this.LevelSettings.PicrossPieceCount.LGreen = lGreen;
+            }
+            
+            if(name == "gold1" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Gold1"))
+            {
+                var sprite = this.Owner.Sprite.SpriteSource;
+                var gold1 = this.LevelSettings.PicrossPieceCount.Gold1;
+                sprite = SpriteSource.Find("Gold1");
+                gold1 -= 1;
+                this.Owner.Sprite.SpriteSource = sprite;
+                this.LevelSettings.PicrossPieceCount.Gold1 = gold1;
+            }
+            
+            if(name == "gold2" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Gold2"))
+            {
+                var sprite = this.Owner.Sprite.SpriteSource;
+                var gold2 = this.LevelSettings.PicrossPieceCount.Gold2;
+                sprite = SpriteSource.Find("Gold2");
+                gold2 -= 1;
+                this.Owner.Sprite.SpriteSource = sprite;
+                this.LevelSettings.PicrossPieceCount.Gold2 = gold2;
+            }
+            
+            if(name == "gold3" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Gold3"))
+            {
+                var sprite = this.Owner.Sprite.SpriteSource;
+                var gold3 = this.LevelSettings.PicrossPieceCount.Gold3;
+                sprite = SpriteSource.Find("Gold3");
+                gold3 -= 1;
+                this.Owner.Sprite.SpriteSource = sprite;
+                this.LevelSettings.PicrossPieceCount.Gold3 = gold3;
+            }
+            
+            if(name == "lBlue" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("LightBlue"))
+            {
+                var sprite = this.Owner.Sprite.SpriteSource;
+                var lBlue = this.LevelSettings.PicrossPieceCount.LBlue;
+                sprite = SpriteSource.Find("LightBlue");
+                lBlue -= 1;
+                this.Owner.Sprite.SpriteSource = sprite;
+                this.LevelSettings.PicrossPieceCount.LBlue = lBlue;
+            }
+            
+            if(this.Owner.Name == "BaseTile_Incorrect" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Incorrect"))
+            {
+                var sprite = this.Owner.Sprite.SpriteSource;
+                sprite = SpriteSource.Find("Incorrect");
+                this.Owner.Sprite.SpriteSource = sprite;
+            }
+        }
+        
+    }
     
     function OnMouseDown(event : ViewportMouseEvent)
     {
@@ -128,16 +286,52 @@ class PieceChange : ZilchComponent
         {
             var sprite = this.Owner.Sprite.SpriteSource;
             var lGreen = this.LevelSettings.PicrossPieceCount.LGreen;
-            sprite = SpriteSource.Find("Red");
+            sprite = SpriteSource.Find("LightGreen");
             lGreen -= 1;
             this.Owner.Sprite.SpriteSource = sprite;
             this.LevelSettings.PicrossPieceCount.LGreen = lGreen;
         }
-    }
-    
-    
-    function OnMouseUp(event : ViewportMouseEvent)
-    {
+        
+        if(name == "gold1" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Gold1"))
+        {
+            var sprite = this.Owner.Sprite.SpriteSource;
+            var gold1 = this.LevelSettings.PicrossPieceCount.Gold1;
+            sprite = SpriteSource.Find("Gold1");
+            gold1 -= 1;
+            this.Owner.Sprite.SpriteSource = sprite;
+            this.LevelSettings.PicrossPieceCount.Gold1 = gold1;
+        }
+        
+        if(name == "gold2" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Gold2"))
+        {
+            var sprite = this.Owner.Sprite.SpriteSource;
+            var gold2 = this.LevelSettings.PicrossPieceCount.Gold2;
+            sprite = SpriteSource.Find("Gold2");
+            gold2 -= 1;
+            this.Owner.Sprite.SpriteSource = sprite;
+            this.LevelSettings.PicrossPieceCount.Gold2 = gold2;
+        }
+        
+        if(name == "gold3" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Gold3"))
+        {
+            var sprite = this.Owner.Sprite.SpriteSource;
+            var gold3 = this.LevelSettings.PicrossPieceCount.Gold3;
+            sprite = SpriteSource.Find("Gold3");
+            gold3 -= 1;
+            this.Owner.Sprite.SpriteSource = sprite;
+            this.LevelSettings.PicrossPieceCount.Gold3 = gold3;
+        }
+        
+        if(name == "lBlue" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("LightBlue"))
+        {
+            var sprite = this.Owner.Sprite.SpriteSource;
+            var lBlue = this.LevelSettings.PicrossPieceCount.LBlue;
+            sprite = SpriteSource.Find("LightBlue");
+            lBlue -= 1;
+            this.Owner.Sprite.SpriteSource = sprite;
+            this.LevelSettings.PicrossPieceCount.LBlue = lBlue;
+        }
+        
         if(this.Owner.Name == "BaseTile_Incorrect" && this.Owner.Sprite.SpriteSource != SpriteSource.Find("Incorrect"))
         {
             var sprite = this.Owner.Sprite.SpriteSource;

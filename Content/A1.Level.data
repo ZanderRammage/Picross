@@ -99,6 +99,9 @@ Level =
 		ConsoleTemp = 
 		{
 		},
+		Zoom = 
+		{
+		},
 	},
 	Cog = 
 	{
@@ -168,7 +171,7 @@ Level =
 			float FieldOfView = 45,
 			float NearPlane = 0.5,
 			float FarPlane = 200,
-			float Size = 6,
+			float Size = 7,
 		},
 		SoundListener = 
 		{

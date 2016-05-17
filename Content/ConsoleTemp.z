@@ -17,7 +17,7 @@ class ConsoleTemp : ZilchComponent
         Console.WriteLine("LGreen: `this.LevelSettings.PicrossPieceCount.LGreen`");
         Console.WriteLine("Green: `this.LevelSettings.PicrossPieceCount.Green`");
         Console.WriteLine("DRed: `this.LevelSettings.PicrossPieceCount.DRed`");
-        Console.WriteLine("");
-        Console.WriteLine("");
+        Console.WriteLine("Golds: `this.LevelSettings.PicrossPieceCount.Gold1 + this.LevelSettings.PicrossPieceCount.Gold2 + this.LevelSettings.PicrossPieceCount.Gold3`");
+        Console.WriteLine("LBlue: `this.LevelSettings.PicrossPieceCount.LBlue`");
     }
 }

@@ -1,0 +1,42 @@
+class Zoom : ZilchComponent
+{
+    var MousePos : Real2;
+    var MouseWorldPos : Real3;
+    var Toggle : Boolean = false;
+    var CameraSize : Real;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        this.CameraSize = this.Space.FindObjectByName("Camera").Camera.Size;
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        
+        this.MousePos = Zero.Mouse.ScreenPosition;
+        this.MouseWorldPos = this.LevelSettings.CameraViewport.ScreenToWorldZPlane(this.MousePos, 0);
+        
+        var oldCameraSize = this.CameraSize;
+        var cameraPos = this.Space.FindObjectByName("Camera").Transform.Translation;
+                
+        if(this.Toggle == false && Zero.Keyboard.KeyIsPressed(Keys.Z))
+        {
+            this.Toggle = true;
+            cameraPos = this.MouseWorldPos;
+            cameraPos.Z = 40;
+            oldCameraSize = oldCameraSize / 2;
+            this.Space.FindObjectByName("Camera").Camera.Size = oldCameraSize;
+        }
+        
+        else if(this.Toggle == true && Zero.Keyboard.KeyIsPressed(Keys.Z))
+        {
+            this.Toggle = false;
+            cameraPos = Real3(0, 0, 40);
+            this.Space.FindObjectByName("Camera").Camera.Size = this.CameraSize;
+        }
+        
+        this.Space.FindObjectByName("Camera").Transform.Translation = cameraPos;
+    }
+}

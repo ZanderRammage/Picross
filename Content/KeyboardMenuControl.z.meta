@@ -1,0 +1,15 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "KeyboardMenuControl",
+		uint64 ResourceId = 573048c271abe9f3,
+	},
+	ContentTags = 
+	{
+		Array Tags = 
+		[
+			"MenuControl",
+		],
+	},
+},

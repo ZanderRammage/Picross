@@ -1,0 +1,120 @@
+class KeyboardMenuControl : ZilchComponent
+{
+    var Level1 : Level = Level.Find("A1");
+    var New : Integer = 0;
+    var Old : Integer = 0;
+    var Temp : Integer = 0;
+    
+    var Control : Boolean = true;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.MouseUp, this.OnMouseUp);
+        if(this.Control == false)
+        {
+            this.New = 1;
+        }
+        
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var up = Zero.Keyboard.KeyIsPressed(Keys.W) || Zero.Keyboard.KeyIsPressed(Keys.Up);
+        var down = Zero.Keyboard.KeyIsPressed(Keys.S) || Zero.Keyboard.KeyIsPressed(Keys.Down);
+        
+        if(up || down)
+        {
+            this.Control = false;
+        }
+        
+        if(this.Control == false)
+        {
+            if(up)
+            {
+                this.New -= 1;
+                this.Old = this.New + 1;
+                this.Temp = 0;
+            }
+            if(down)
+            {
+                this.New += 1;
+                this.Old = this.New - 1;
+                this.Temp = 0;
+            }
+            
+            if(this.New <= -1)
+            {
+                this.New = 2;
+            }
+            if(this.New >= 3)
+            {
+                this.New = 0;
+            }
+            if(this.Old <= -1)
+            {
+                this.Old = 2;
+            }
+            if(this.Old >= 3)
+            {
+                this.Old = 0;
+            }
+            
+            var spriteName = "a`this.New`";
+            var oldSpriteName = "a`this.Old`";
+            
+            this.Space.FindObjectByName("`spriteName`").Sprite.CurrentFrame = 1;
+            this.Space.FindObjectByName("`oldSpriteName`").Sprite.CurrentFrame = 0;
+        }
+        if(this.Control == true)
+        {
+            if(this.Temp == 0)
+            {
+                this.Space.FindObjectByName("a0").Sprite.CurrentFrame = 0;
+                this.Space.FindObjectByName("a1").Sprite.CurrentFrame = 0;
+                this.Space.FindObjectByName("a2").Sprite.CurrentFrame = 0;
+            }
+            if(this.Temp == 1)
+            {
+                this.Space.FindObjectByName("a0").Sprite.CurrentFrame = 1;
+                this.Space.FindObjectByName("a1").Sprite.CurrentFrame = 0;
+                this.Space.FindObjectByName("a2").Sprite.CurrentFrame = 0;
+            }
+            if(this.Temp == 2)
+            {
+                this.Space.FindObjectByName("a0").Sprite.CurrentFrame = 0;
+                this.Space.FindObjectByName("a1").Sprite.CurrentFrame = 1;
+                this.Space.FindObjectByName("a2").Sprite.CurrentFrame = 0;
+            }
+            if(this.Temp == 3)
+            {
+                this.Space.FindObjectByName("a0").Sprite.CurrentFrame = 0;
+                this.Space.FindObjectByName("a1").Sprite.CurrentFrame = 0;
+                this.Space.FindObjectByName("a2").Sprite.CurrentFrame = 1;
+            }
+        }
+    }
+    
+    
+    function OnMouseUp(event : ViewportMouseEvent)
+    {
+        if(this.Control == true)
+        {
+            if(this.Temp == 1)
+            {
+                this.Space.LoadLevel(Level.Find("A1"));
+            }
+            
+            if(this.Temp == 2)
+            {
+                this.Space.LoadLevel(Level.Find("C1"));
+            }
+            
+            if(this.Temp == 3)
+            {
+                this.GameSession.Quit();
+            }
+        }
+    }
+}

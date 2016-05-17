@@ -9,6 +9,15 @@ class IncreaseBy1 : ZilchComponent
         var grey = this.LevelSettings.PicrossPieceCount.Grey;
         var white = this.LevelSettings.PicrossPieceCount.White;
         var lGrey = this.LevelSettings.PicrossPieceCount.LGrey;
+        var dGreen = this.LevelSettings.PicrossPieceCount.DGreen;
+        var lGreen = this.LevelSettings.PicrossPieceCount.LGreen;
+        var green = this.LevelSettings.PicrossPieceCount.Green;
+        var dRed = this.LevelSettings.PicrossPieceCount.DRed;
+        var gold1 = this.LevelSettings.PicrossPieceCount.Gold1;
+        var gold2 = this.LevelSettings.PicrossPieceCount.Gold2;
+        var gold3 = this.LevelSettings.PicrossPieceCount.Gold3;
+        var lBlue = this.LevelSettings.PicrossPieceCount.LBlue;
+        var incorrect = this.LevelSettings.PicrossPieceCount.Incorrect;
         
         if(name == "red")
         {
@@ -37,7 +46,42 @@ class IncreaseBy1 : ZilchComponent
         
         if(name == "dGreen")
         {
-            
+            dGreen += 1;
+        }
+        
+        if(name == "lGreen")
+        {
+            lGreen += 1;
+        }
+        
+        if(name == "dRed")
+        {
+            dRed += 1;
+        }
+        
+        if(name == "green")
+        {
+            green += 1;
+        }
+        if(name == "gold1")
+        {
+            gold1 += 1;
+        }
+        if(name == "gold2")
+        {
+            gold2 += 1;
+        }
+        if(name == "gold3")
+        {
+            gold3 += 1;
+        }
+        if(name == "lBlue")
+        {
+            lBlue += 1;
+        }
+        if(name == "BaseTile_Incorrect")
+        {
+            incorrect += 1;
         }
         
         this.LevelSettings.PicrossPieceCount.Red = red;
@@ -45,15 +89,14 @@ class IncreaseBy1 : ZilchComponent
         this.LevelSettings.PicrossPieceCount.Grey = grey;
         this.LevelSettings.PicrossPieceCount.White = white;
         this.LevelSettings.PicrossPieceCount.LGrey = lGrey;
-        
-        Console.WriteLine("Red: `red`");
-        Console.WriteLine("Black: `black`");
-        Console.WriteLine("Grey: `grey`");
-        Console.WriteLine("White: `white`");
-        Console.WriteLine("LGrey: `lGrey`");
-        Console.WriteLine("");
-        Console.WriteLine("");
-        Console.WriteLine("");
-        Console.WriteLine("");
+        this.LevelSettings.PicrossPieceCount.DGreen = dGreen;
+        this.LevelSettings.PicrossPieceCount.LGreen = lGreen;
+        this.LevelSettings.PicrossPieceCount.DRed = dRed;
+        this.LevelSettings.PicrossPieceCount.Green = green;
+        this.LevelSettings.PicrossPieceCount.Gold1 = gold1;
+        this.LevelSettings.PicrossPieceCount.Gold2 = gold2;
+        this.LevelSettings.PicrossPieceCount.Gold3 = gold3;
+        this.LevelSettings.PicrossPieceCount.LBlue = lBlue;
+        this.LevelSettings.PicrossPieceCount.Incorrect = incorrect;
     }
 }
