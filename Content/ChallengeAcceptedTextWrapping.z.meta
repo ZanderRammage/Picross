@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "ChallengeAcceptedTextWrapping",
+		uint64 ResourceId = 5729fc6dd850e2b0,
+	},
+},

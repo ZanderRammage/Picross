@@ -1,0 +1,21 @@
+class Achievements : ZilchComponent
+{
+    var Challenge : Boolean = false;
+    
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        if(this.Challenge == true && this.Space.CurrentLevel == Level.Find("Achievements"))
+        {
+            var challenge = this.Space.FindObjectByName("AchievementGrayedOut").Transform.Translation;
+            challenge.Y = -1;
+            this.Space.FindObjectByName("AchievementGrayedOut").Transform.Translation = challenge;
+        }
+    }
+}

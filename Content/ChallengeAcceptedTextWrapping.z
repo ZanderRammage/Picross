@@ -1,0 +1,15 @@
+class ChallengeAcceptedTextWrapping : ZilchComponent
+{
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var text = this.Owner.SpriteText.Text;
+        text = "Finish the first level\r\nof Challenge Mode.";
+        this.Owner.SpriteText.Text = text;
+    }
+}

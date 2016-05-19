@@ -10,7 +10,7 @@ class ColorChanger : ZilchComponent
 
     function OnLogicUpdate(event : UpdateEvent)
     {
-        this.Owner.MultiSprite.Color = Real4(this.R, this.G, this.B, 1);
+        this.Owner.Sprite.Color = Real4(this.R, this.G, this.B, 1);
         
         if(this.R == 1.0 && this.G < 1.0 && this.B == 0)           //Red to Yellow
         {
