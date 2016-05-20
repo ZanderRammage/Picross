@@ -1,0 +1,8 @@
+TextContent = 
+{
+	ZilchScriptBuilder = 
+	{
+		string Name = "LevelSwap.MenuControl",
+		uint64 ResourceId = 57f269ae0d3df1ba,
+	},
+},

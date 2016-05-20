@@ -6,7 +6,7 @@ Cog =
 		string ProjectOwner = "",
 		string DefaultLevel = "Level",
 		string ProjectSpace = "Space",
-		string ProjectFolder = "C:\Users\16.Zander.Rammage\Documents\ZeroProjects\Picross",
+		string ProjectFolder = "C:\Users\Zander Rammage\Documents\Repositories\Picross",
 		uint ProjectEngineRevision = 12624,
 		bool AutoTakeProjectScreenshot = true,
 	},

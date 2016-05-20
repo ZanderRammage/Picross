@@ -1,4 +1,4 @@
-class IncreaseBy1 : ZilchComponent
+/*class IncreaseBy1 : ZilchComponent
 {
     function Initialize(init : CogInitializer)
     {
@@ -99,4 +99,4 @@ class IncreaseBy1 : ZilchComponent
         this.LevelSettings.PicrossPieceCount.LBlue = lBlue;
         this.LevelSettings.PicrossPieceCount.Incorrect = incorrect;
     }
-}
+}*/

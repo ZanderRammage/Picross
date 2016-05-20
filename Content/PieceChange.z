@@ -1,4 +1,4 @@
-class PieceChange : ZilchComponent
+/*class PieceChange : ZilchComponent
 {
     var Red : Integer;
     var Black : Integer;
@@ -339,4 +339,4 @@ class PieceChange : ZilchComponent
             this.Owner.Sprite.SpriteSource = sprite;
         }
     }
-}
+}*/

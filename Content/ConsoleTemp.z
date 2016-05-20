@@ -1,4 +1,4 @@
-class ConsoleTemp : ZilchComponent
+/*class ConsoleTemp : ZilchComponent
 {
     function Initialize(init : CogInitializer)
     {
@@ -21,3 +21,4 @@ class ConsoleTemp : ZilchComponent
         Console.WriteLine("LBlue: `this.LevelSettings.PicrossPieceCount.LBlue`");
     }
 }
+*/

@@ -1,0 +1,181 @@
+class KLevelSwapMenuControl : ZilchComponent
+{
+    var Red : Integer = 0;
+    var Black : Integer = 0;
+    var Grey : Integer = 0; 
+    var White : Integer = 0;
+    var LGrey : Integer = 0;
+    var LGreen : Integer = 0;
+    var DGreen : Integer = 0;
+    var Green : Integer = 0;
+    var DRed : Integer = 0;
+    var Gold1 : Integer = 0;
+    var Gold2 : Integer = 0;
+    var Gold3 : Integer = 0;
+    var LBlue : Integer = 0;
+    var Incorrect : Integer = 0;
+    
+    var Level : Integer = 1;
+    
+    var Timer : Real = 0;
+    
+    var Challenge : Boolean = false;
+    
+    var Temp : Integer = 0;
+    
+    var New : Integer = 0;
+    var Old : Integer = 0;
+    
+    var Control : Boolean = true;
+    
+    var LoadLevel : Level;
+    
+    function Initialize(init : CogInitializer)
+    {
+        Zero.Connect(this.Space, Events.LogicUpdate, this.OnLogicUpdate);
+        Zero.Connect(this.Owner, Events.MouseEnter, this.OnMouseEnter);
+        Zero.Connect(this.Owner, Events.MouseExit, this.OnMouseExit);
+    }
+    
+    
+    function OnLogicUpdate(event : UpdateEvent)
+    {
+        var up = Zero.Keyboard.KeyIsPressed(Keys.W) || Zero.Keyboard.KeyIsPressed(Keys.Up);
+        var down = Zero.Keyboard.KeyIsPressed(Keys.S) || Zero.Keyboard.KeyIsPressed(Keys.Down);
+        
+        if(up || down)
+        {
+            this.Control = false;
+        }
+        
+        if(this.Control == false)
+        {
+            if(up)
+            {
+                this.New -= 1;
+                this.Old = this.New + 1;
+                this.Temp = 0;
+            }
+            if(down)
+            {
+                this.New += 1;
+                this.Old = this.New - 1;
+                this.Temp = 0;
+            }
+            
+            if(this.New <= -1)
+            {
+                this.New = 2;
+            }
+            if(this.New >= 4)
+            {
+                this.New = 0;
+            }
+            if(this.Old <= -1)
+            {
+                this.Old = 2;
+            }
+            if(this.Old >= 4)
+            {
+                this.Old = 0;
+            }
+            
+            var spriteName = "a`this.New`";
+            var oldSpriteName = "a`this.Old`";
+            
+            this.Space.FindObjectByName("`spriteName`").Sprite.CurrentFrame = 1;
+            this.Space.FindObjectByName("`oldSpriteName`").Sprite.CurrentFrame = 0;
+        }
+        //Changes the sprite frame depending on what is selected
+        if(this.Temp == 0)
+        {
+            this.Space.FindObjectByName("a0").Sprite.CurrentFrame = 0;
+            this.Space.FindObjectByName("a1").Sprite.CurrentFrame = 0;
+            this.Space.FindObjectByName("a2").Sprite.CurrentFrame = 0;
+            this.Space.FindObjectByName("a3").Sprite.CurrentFrame = 0;
+        }
+        if(this.Temp == 1)
+        {
+            this.Space.FindObjectByName("a0").Sprite.CurrentFrame = 1;
+        }
+        if(this.Temp == 2)
+        {
+            this.Space.FindObjectByName("a1").Sprite.CurrentFrame = 1;
+        }
+        if(this.Temp == 3)
+        {
+            this.Space.FindObjectByName("a2").Sprite.CurrentFrame = 1;
+        }
+        if(this.Temp == 4)
+        {
+            this.Space.FindObjectByName("a3").Sprite.CurrentFrame = 1;
+        }
+        //Level Changer
+        if(this.Red == 0 && this.Black == 0 && this.Grey == 0 && this.White == 0 && this.LGrey == 0 && this.DRed == 0 && this.DGreen == 0 && this.LGreen == 0 && this.Green == 0 && this.Gold1 == 0 && this.Gold2 == 0 && this.Gold3 == 0 && this.LBlue == 0)
+        {
+            this.Timer += event.Dt;
+            //Spawn Achievement Notification
+            if(this.Space.CurrentLevel.Name == "C1" && this.Challenge == false)
+            {
+                this.Challenge = true;
+                var createObject = this.Space.CreateAtPosition(Archetype.Find("AchievementChallenge"), Real3(12.25,-7.25,0));
+            }
+            
+            if(this.Timer >= 3)
+            {
+                if(this.Space.CurrentLevel.Name == "A`this.Level`")
+                {
+                    this.Level += 1;
+                    var space = this.LoadLevel(Level.Find("A`this.Level`"));
+                }
+                
+                if(this.Space.CurrentLevel.Name == "C`this.Level`")
+                {
+                    this.Level += 1;
+                    var space = this.LoadLevel(Level.Find("C`this.Level`"));
+                }
+            }
+        }
+        
+        if(this.Space.CurrentLevel.Name == "A4" || this.Space.CurrentLevel.Name == "C3")
+        {
+            var space = this.LoadLevel(Level.Find("Main"));
+        }
+    }
+    
+    
+    function OnMouseEnter(event : ViewportMouseEvent)
+    {
+        
+    }
+    
+    
+    function OnMouseExit(event : ViewportMouseEvent)
+    {
+        
+    }
+    
+    
+    function OnMouseUp(event : ViewportMouseEvent)
+    {
+        if(this.Temp == 1)
+        {
+            var space = this.LoadLevel(Level.Find("A1"));
+        }
+        
+        if(this.Temp == 2)
+        {
+            var space = this.LoadLevel(Level.Find("C1"));
+        }
+        
+        if(this.Temp == 3)
+        {
+            var space = this.LoadLevel(Level.Find("Achievements"));
+        }
+        
+        if(this.Temp == 4)
+        {
+            this.GameSession.Quit();
+        }
+    }
+}

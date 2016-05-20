@@ -1,8 +1,5 @@
 class Menu4 : ZilchComponent
 {
-    var Control : Boolean;
-    
-    
     function Initialize(init : CogInitializer)
     {
         Zero.Connect(this.Owner, Events.MouseEnter, this.OnMouseEnter);
@@ -12,24 +9,18 @@ class Menu4 : ZilchComponent
     
     function OnMouseEnter(event : ViewportMouseEvent)
     {
-        this.Control = this.LevelSettings.KeyboardMenuControl.Control;
-        
-        if(this.Control == true)
-        {
-            var temp = this.LevelSettings.KeyboardMenuControl.Temp;
-            temp = 4;
-            this.LevelSettings.KeyboardMenuControl.Temp = temp;
-        }
+        var temp = this.LevelSettings.KeyboardMenuControl.Temp;
+        temp = 4;
+        this.LevelSettings.KeyboardMenuControl.Temp = temp;
+
     }
     
     
     function OnMouseExit(event : ViewportMouseEvent)
     {
-        if(this.Control == true)
-        {
-            var temp = this.LevelSettings.KeyboardMenuControl.Temp;
-            temp = 0;
-            this.LevelSettings.KeyboardMenuControl.Temp = temp;
-        }
+        var temp = this.LevelSettings.KeyboardMenuControl.Temp;
+        temp = 0;
+        this.LevelSettings.KeyboardMenuControl.Temp = temp;
+
     }
 }
